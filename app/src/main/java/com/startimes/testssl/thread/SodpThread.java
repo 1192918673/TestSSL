@@ -16,7 +16,7 @@ public class SodpThread extends Thread {
     private final Handler mHandler;
     public int mSocket = -1;
     private SodpCallback mSodpCallback;
-    private boolean connected = false;
+    public boolean connected = false;
     private int mCount = 0;
 
     public SodpThread(Handler handler) {
@@ -48,11 +48,13 @@ public class SodpThread extends Thread {
     }
 
     private void connectSodpSocket() {
-        Log.d(TAG, "Sodp连接... mSocket = " + mSocket);
+        Log.d(TAG, mCount++ + "Sodp连接... mSocket = " + mSocket);
         mHandler.obtainMessage(MainActivity.MSG_SODP_CONN, mCount++ + "Sodp连接... mSocket = " + mSocket).sendToTarget();
         try {
             mSocket = StarOpenSSL.ClientInit(Contants.IP, Contants.PORT + 1, Contants.KEYPATH);
         } catch (Exception e) {
+            Log.d(TAG, "SODP连接异常");
+            mHandler.obtainMessage(MainActivity.MSG_RESULT, "SODP连接异常！mSocket = " + mSocket).sendToTarget();
             e.printStackTrace();
         }
     }

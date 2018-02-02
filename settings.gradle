@@ -1,1 +1,17 @@
 include ':app'
+
+/*include ':component'
+project(':component').projectDir=new File('../component/')
+
+include ':component:common:starapp_common'
+include ':component:platform:starbox_domain'
+include ':component:platform:starbox_ott'
+include ':component:platform:starbox'
+include ':component:platform:starbox_dvb'
+include ':component:platform:starbox_hybrid'
+include ':component:platform:starbox_dao'
+include ':component:platform:starbox_sodp'
+include ':component:platform:sodpservice:bussinessLogicLevel'
+include ':component:platform:sodpservice:sodpService'
+include ':component:platform:sodpservice:sodpClient'
+include ':component:platform:sodpservice:dvbCommonUtile'*/
